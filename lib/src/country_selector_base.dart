@@ -50,13 +50,28 @@ abstract class CountrySelectorBase extends StatefulWidget {
   final Color? searchBoxIconColor;
 
   /// The size of the flag inside the selector
-  final double flagSize;
+  final double? flagSize;
+
+  final Color? dividerColor;
+
+  final Color? countryListBackgroundColor;
+
+  final Widget? backgroundWidget;
+
+  final Widget? backButtonIcon;
+
+
+  final BoxDecoration? backgroundDecoration;
 
   const CountrySelectorBase({
     super.key,
     required this.onCountrySelected,
     this.scrollController,
     this.scrollPhysics,
+    this.backgroundDecoration,
+    this.dividerColor,
+    this.backgroundWidget,
+    this.countryListBackgroundColor,
     bool? showDialCode,
     this.noResultMessage,
     List<IsoCode>? favoriteCountries,
@@ -67,11 +82,11 @@ abstract class CountrySelectorBase extends StatefulWidget {
     this.searchBoxDecoration,
     this.searchBoxTextStyle,
     this.searchBoxIconColor,
-    double? flagSize,
+    this.flagSize,
+    this.backButtonIcon,
   })  : countries = countries ?? IsoCode.values,
         favoriteCountries = favoriteCountries ?? const [],
         showDialCode = showDialCode ?? false,
-        flagSize = flagSize ?? 40,
         searchAutofocus = searchAutofocus ?? kIsWeb;
 }
 
